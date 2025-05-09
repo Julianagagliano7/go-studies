@@ -13,8 +13,7 @@ go mod init github.com/Julianagagliano7/go-studies
 ```
 
 ### Baixar dependências 
-Como se fosse um "npm install"
-Adiciona/remove automaticamente pacotes que não estão sendo usados ou que estão sem "import"
+Como se fosse um "npm install". Adiciona/remove automaticamente pacotes que não estão sendo usados ou que estão sem "import"
 ```bash
 go mod tidy
 ```
@@ -25,6 +24,7 @@ go run main.go
 ```
 
 ### Gerar o binário final (output)
+Se eu acessar o arquivo somente via terminal, já executa, como se fosse um .exe no windows
 ```bash
 go build -o <nome_arquivo>
 ```

@@ -1,8 +1,10 @@
 package main 
 
-import "fmt"
+import (
+	"github.com/Julianagagliano7/go-studies/meet"
+)
 
 func main(){
-	fmt.Println("Hello, world!")
+	meet.Say("Pearl Jam")
 }
 
