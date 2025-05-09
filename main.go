@@ -5,6 +5,7 @@ import (
 )
 
 func main(){
+	meet.SayHello()
 	meet.Say("Pearl Jam")
 }
 
