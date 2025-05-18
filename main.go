@@ -1,11 +1,10 @@
-package main 
+package main
 
 import (
 	"github.com/Julianagagliano7/go-studies/meet"
 )
 
-func main(){
+func main() {
 	meet.SayHello()
-	meet.Say("Pearl Jam")
+	meet.Say("Red Hot Chilli Peppers")
 }
-
