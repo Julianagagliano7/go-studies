@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	var idade int = 30   //ocupa tamanho da memória do sistema, padrão 64 bits
-	var idade1 int32 = 2 //ocupa 32 bits
-	var idade2 int8 = 1 //ocupa 8 bits
+	var floatNumber float32 = 1.1 //32 bits - apenas operações matemáticas do mesmo tipo de float são permitidas
 
-	fmt.Println(idade)
-	fmt.Println(idade1)
-	fmt.Println(idade2)
+	var pi float64 = 3.14159
+	var radius float64 = 5.0
+	var area float64 = pi * radius * radius
+
+	fmt.Println("Area of the circle:", area)
+	fmt.Println("Float number:", floatNumber)
 }
-
