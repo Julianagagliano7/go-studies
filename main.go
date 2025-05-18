@@ -3,9 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	var texto string = "juliana"
+	texto := "Pearl Jam"
 
-	texto = "ju"
+	texto += " - Black"
 
 	fmt.Println(texto)
 }
+
