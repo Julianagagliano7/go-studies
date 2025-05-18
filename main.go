@@ -1,10 +1,11 @@
 package main
 
-import (
-	"github.com/Julianagagliano7/go-studies/meet"
-)
+import "fmt"
 
 func main() {
-	meet.SayHello()
-	meet.Say("Red Hot Chilli Peppers")
+	var texto string = "juliana"
+
+	texto = "ju"
+
+	fmt.Println(texto)
 }
