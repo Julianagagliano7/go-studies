@@ -2,11 +2,11 @@ package main
 
 import "fmt"
 
+const name = "Juliana"
+
 func main() {
-	texto := "Pearl Jam"
+	age := 21
 
-	texto += " - Black"
-
-	fmt.Println(texto)
+	fmt.Println("My name is", name + " and I am", age, "years old.") 
 }
 
