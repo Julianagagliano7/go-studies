@@ -1,11 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
-	 var maior bool = 10 > 5
-	 var menor bool = 10 < 5
+	var hello string = "Hello, World!\n"
+	var question string = "How are you?"
 
-	 fmt.Println(maior)
-	 fmt.Println(menor)
+	var meet = hello + question
+
+	fmt.Println(strings.ToUpper(meet))
+	fmt.Println(strings.Contains(meet, "World"))
+	fmt.Println(strings.Contains(meet, "world"))
 }
