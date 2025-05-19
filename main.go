@@ -23,12 +23,4 @@ func main() {
 	fmt.Println(*b)
 	fmt.Println(*pointer)
 	fmt.Println(a)
-
-
-
-
-
-
-
-
 }
