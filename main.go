@@ -1,17 +1,12 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
+import "fmt"
 
 func main() {
-	var hello string = "Hello, World!\n"
-	var question string = "How are you?"
+	a := 10
 
-	var meet = hello + question
+	var pointer *int = &a //recupera o enderço de memória da variável a
 
-	fmt.Println(strings.ToUpper(meet))
-	fmt.Println(strings.Contains(meet, "World"))
-	fmt.Println(strings.Contains(meet, "world"))
+	fmt.Println(pointer)
+	fmt.Println(*pointer) //recupera o valor armazenado no endereço de memória
 }
