@@ -2,20 +2,11 @@ package main
 
 import "fmt"
 
-type Carro struct {
-	Name string
-}
-
-func (c *Carro) andou() { //ponteiro altera o valor de carro.Name na main()
-	c.Name = "BMW"
-	fmt.Println(c.Name, "andou")
-}
-
 func main() {
-	carro := Carro{
-		Name: "Citroen C3",
-	}
+	var gavetas [2]string
+	gavetas[0] = "Chaves"
+	gavetas[1] = "Documentos"
 
-	carro.andou()
-	fmt.Println(carro.Name)
+	fmt.Println(gavetas[1])
+
 }
