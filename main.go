@@ -2,27 +2,31 @@ package main
 
 import "fmt"
 
-//slice possuem tamanho flexível (dinâmico)
-//armazenam dados do mesmo tipo
+//Map: estrutura chave-valor
+//chave tem tipo, valor também
 
-//inserção: uso a função append (aumenta o slice por baixo dos panos), insere sempre no final
+//Acesso rápido pois a chave é única
 
 func main() {
-	var gavetas []string
+	var pessoas = map[string]int{}
+	pessoas["Ju"] = 21
+	pessoas["Joao"] = 32
+	pessoas["fabio"] = 25
 
-	gavetas = append(gavetas, "copos", "panos", "colheres") //inserção
-	fmt.Println(gavetas[2])                                 //leitura
+	// fmt.Println(pessoas["Ju"])
 
-	fmt.Println(len(gavetas))
+	if idade, ok := pessoas["fabio"]; ok {
+		fmt.Println("Idade do Fabio:", idade, ok)
+	} else {
+		fmt.Println("Fabio não encontrado")
+	}
 
-	// Divisão de slice
-	// slice[x:x-1] -> último x é sempre o len do slice - 1
+	//Removendo um elemento do map 
+	delete(pessoas, "Ju")
+	fmt.Println(pessoas)
 
-	fmt.Println(gavetas[0:2])
-
-
-	//Remoção de itens do slice 
-
-	gavetas = gavetas[:2] 
-	fmt.Println(gavetas) 
+	//Iterando um map 
+	for nome, idade := range pessoas {
+		fmt.Println("Nome:", nome, "Idade:", idade)
+	}
 }
