@@ -1,16 +1,19 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 )
 
 func main() {
-	if err := thisIsAnError(); err != nil {
-		fmt.Println(err.Error())
+	players := map[string]int{
+		"lais": 26,
 	}
-}
 
-func thisIsAnError() error {
-	return errors.New("isto é um erro")
+	if value, ok := players["lais"]; ok {
+		fmt.Println("pontos: ", value, ok)
+	}
+
+	if value, ok := players["juliana"]; !ok {
+		fmt.Println("Não existe jogador com esse nome", value, ok)
+	}
 }

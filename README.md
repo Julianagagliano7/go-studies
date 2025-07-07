@@ -29,9 +29,8 @@ Se eu acessar o arquivo somente via terminal, já executa, como se fosse um .exe
 go build -o <nome_arquivo>
 ```
 
-### Expressão curta de If usando variável disponível somente naquele escopo
-Variável err só pode ser acessada dentro do If pois só existe naquele escopo, fora dela, é undefined
-
+### Declaração curta de variável no If (somente disponível naquele escopo) 
+Variável err só pode ser acessada dentro do If, pois foi declarada naquele escopo, fora daquela condição, é undefined
 ```bash
 
 func main() {
