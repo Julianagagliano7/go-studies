@@ -1,15 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
-	nota := 65
-
-	if nota >= 90 {
-		fmt.Println("Aprovado com distinção")
-	} else if nota >= 70 {
-		fmt.Println("Aprovado")
-	} else {
-		fmt.Println("Reprovado")
+	if err := thisIsAnError(); err != nil {
+		fmt.Println(err.Error())
 	}
+}
+
+func thisIsAnError() error {
+	return errors.New("isto é um erro")
 }
