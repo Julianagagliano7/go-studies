@@ -3,29 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	a := 10
+	nota := 65
 
-	var pointer *int = &a //recupera o enderço de memória da variável a
-
-	// fmt.Println(&a)       
-	// fmt.Println(pointer)
-	// fmt.Println(*pointer) //recupera o valor armazenado no endereço de memória
-
-	*pointer = 50
-
-	// fmt.Println(*pointer)
-	// fmt.Println(pointer)
-	// fmt.Println(&a)
-	// fmt.Println(a)
-
-	b := &a 
-	*b = 20
-
-	fmt.Println(b)
-	fmt.Println(pointer)
-	fmt.Println(&a)
-
-	fmt.Println(a)
-	fmt.Println(*pointer)
-	fmt.Println(*b)
+	if nota >= 90 {
+		fmt.Println("Aprovado com distinção")
+	} else if nota >= 70 {
+		fmt.Println("Aprovado")
+	} else {
+		fmt.Println("Reprovado")
+	}
 }
