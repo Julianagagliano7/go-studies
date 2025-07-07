@@ -28,3 +28,19 @@ Se eu acessar o arquivo somente via terminal, já executa, como se fosse um .exe
 ```bash
 go build -o <nome_arquivo>
 ```
+
+### Declaração curta de variável no If (somente disponível naquele escopo) 
+Variável err só pode ser acessada dentro do If, pois foi declarada naquele escopo, fora daquela condição, é undefined
+```bash
+
+func main() {
+	if err := thisIsAnError(); err != nil {
+		fmt.Println(err.Error())
+	}
+}
+
+func thisIsAnError() error {
+	return errors.New("isto é um erro")
+}
+
+```
