@@ -44,3 +44,31 @@ func thisIsAnError() error {
 }
 
 ```
+### Uso do Range 
+Acesso ao valor dos elementos com mais facilidade 
+
+1) Usando Slice 
+```bash
+
+nums := []string{"pedro", "caio", "juliana"}
+
+for key, value := range nums {
+    fmt.Println(key, value)
+}
+```
+
+2) Usando Map
+```bash
+
+users := map[string]string{
+    "nome":      "João",
+    "documento": "CPF",
+}
+
+for key, value := range users {
+    fmt.Println(key, value)
+}
+```
+
+
+
