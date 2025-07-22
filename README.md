@@ -71,3 +71,118 @@ for key, value := range users {
 ```
 
 ### Uso do package Context 
+
+### context.WithCancel()
+Recebe um sinal para parar imediatamente a execução 
+
+```bash
+func main() {
+	ctx, cancel := context.WithCancel(context.Background())
+
+	go printUntilCancel(ctx)
+
+	time.Sleep(5 * time.Second)
+	cancel()
+	time.Sleep(1 * time.Second)
+}
+
+func printUntilCancel(ctx context.Context) {
+	count := 0
+
+	for {
+		select {
+		case <-ctx.Done():
+			fmt.Println("cancel signal received, exiting")
+			return
+		default:
+			time.Sleep(1 * time.Second)
+			fmt.Printf("printing until cancel, number = %d \n", count)
+			count += 1
+		}
+	}
+}
+```
+
+### context.WithDeadline()
+Passo um horário exato em que desejo interromper a execução
+
+```bash
+func main() {
+	ctx, _ := context.WithDeadline(
+		context.Background(),
+		time.Now().Add(5*time.Second),
+	)
+
+	printUntilCancel(ctx)
+}
+
+func printUntilCancel(ctx context.Context) {
+	count := 0
+
+	for {
+		select {
+		case <-ctx.Done():
+			fmt.Println("Time to stop operation has come, exiting")
+			return
+		default:
+			time.Sleep(1 * time.Second)
+			fmt.Printf("printing until cancel, number = %d \n", count)
+			count += 1
+		}
+	}
+}
+```
+
+### context.WithTimeout()
+Passo daqui a quanto tempo a execução deve parar 
+
+```bash
+func main() {
+	ctx, cancel := context.WithTimeout(
+		context.Background(),
+		5*time.Second,
+	)
+
+	defer cancel() //não faz diferença, é só para não dar erro no cancel
+
+	printUntilCancel(ctx)
+}
+
+func printUntilCancel(ctx context.Context) {
+	count := 0
+
+	for {
+		select {
+		case <-ctx.Done():
+			fmt.Println("timeout reached, exiting")
+			return
+		default:
+			time.Sleep(1 * time.Second)
+			fmt.Printf("printing until cancel, number = %d \n", count)
+			count += 1
+		}
+	}
+}
+```
+### context.WithValue()
+Armazena valores (chave-valor) em memória que podem ser passados para outros processos. Podem ser float, string, ...
+
+```bash
+
+func main() {
+	ctx := context.WithValue(
+		context.Background(),
+		"testKey", "testValue",
+	)
+
+	printUntilCancel(ctx)
+}
+
+func printUntilCancel(ctx context.Context) {
+	fmt.Println(ctx.Value("testKey"))
+
+	//alterando o valor da do contexto criando outro contexto e passando o existente 
+	ctx2 := context.WithValue(ctx, "testKey", "juliana")
+	fmt.Println(ctx2.Value("testKey"))
+}
+```
