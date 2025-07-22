@@ -69,3 +69,5 @@ for key, value := range users {
     fmt.Println(key, value)
 }
 ```
+
+### Uso do package Context 
