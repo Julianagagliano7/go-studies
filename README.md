@@ -185,3 +185,17 @@ func printUntilCancel(ctx context.Context) {
 	fmt.Println(ctx2.Value("testKey"))
 }
 ```
+
+### Closure Function
+Função anônima 
+
+```bash
+func main(){
+	multiplica := func(x int) int {
+		return x * 2
+	}
+
+	resultado := multplica(5)
+	fmt.Println(resultado)  //output: 10
+}
+```
