@@ -5,23 +5,22 @@ import (
 	"time"
 )
 
-func sayHello() {
-	for i := 0; i < 3; i++ {
-		fmt.Println("Hello")
-		time.Sleep(100 * time.Millisecond)
-	}
-}
-
-
-func sayWorld() {
-	for i := 0; i < 3; i++ {
-		fmt.Println("World")
-		time.Sleep(150 * time.Millisecond)
-	}
-}
-
 func main() {
-	go sayHello()
-	go sayWorld()
-	time.Sleep(1 * time.Millisecond)
+	//canal que recebe um inteiro
+	ch := make(chan int, 3)
+
+	//fica bloqueada até que outra goroutine leia o valor que ela escreveu, a não ser que o channel seja bufferizado
+	go func() {
+		ch <- 10
+		ch <- 3
+		ch <- 2
+		ch <- 3 //não escreve esse valor até que um seja liberado (FIFO)
+	}()
+
+	time.Sleep(time.Second * 1)
+	<-ch //esvazio o channel
+	<-ch 
+	valor := <-ch //leitura
+	fmt.Println("valor do canal:", valor)
+
 }
