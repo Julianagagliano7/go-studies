@@ -5,22 +5,27 @@ import (
 	"time"
 )
 
-func main() {
-	//canal que recebe um inteiro
-	ch := make(chan int, 3)
+func producer(c chan int) {
+	for i := 0; i < 5; i++ {
+		c <- i
+	}
+	close(c)
+}
 
-	//fica bloqueada até que outra goroutine leia o valor que ela escreveu, a não ser que o channel seja bufferizado
-	go func() {
-		ch <- 10
-		ch <- 3
-		ch <- 2
-		ch <- 3 //não escreve esse valor até que um seja liberado (FIFO)
-	}()
+func consumer(c chan int){
+	for v := range c {
+		fmt.Println(v)
+	}
+	fmt.Println("Consumer finalizado")
+}
+
+func main(){
+	ch := make(chan int)
+
+	go producer(ch)
+	go consumer(ch)
+	go consumer(ch)
 
 	time.Sleep(time.Second * 1)
-	<-ch //esvazio o channel
-	<-ch 
-	valor := <-ch //leitura
-	fmt.Println("valor do canal:", valor)
-
+	
 }
