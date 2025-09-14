@@ -199,3 +199,6 @@ func main(){
 	fmt.Println(resultado)  //output: 10
 }
 ```
+### Goroutine
+Ordem dos processos não é garantida, pode ser que um processo mais demorado termine antes de um mais rápido. 
+Olhar branch go-routine-2 para mais detalhes.
